@@ -7,6 +7,15 @@ import reportWebVitals from "./reportWebVitals";
 
 const theme = createTheme({
   typography: {
+    h1: {
+      fontFamily: [
+        "Fjalla One",
+        "Open Sans",
+        "Helvetica Neue",
+        "Helvetica",
+        "sans-serif",
+      ].join(","),
+    },
     fontFamily: ["Montserrat", "sans-serif"].join(","),
   },
 });

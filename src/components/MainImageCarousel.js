@@ -1,5 +1,6 @@
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Camper from "./Camper";
 
 const MainImageCarousel = () => {
   const importAll = (r) => r.keys().map(r);
@@ -9,19 +10,18 @@ const MainImageCarousel = () => {
   );
 
   return (
-    <div style={{ height: 500, position: "absolute", top: 300, right: 0 }}>
-      <Carousel width="500px" autoPlay showArrows={false} infiniteLoop>
-        {images.map((src) => (
-          <div style={{ maxHeight: 300 }}>
-            <span style={{ display: "flex", alignItems: "center" }}>
-              <img
-                style={{ maxHeight: 300, objectFit: "cover" }}
-                src={src.default}
-                alt="alt"
-              />
-            </span>
+    <div style={{}}>
+      <Carousel autoPlay showArrows={false} infiniteLoop>
+        {/* {images.map((src) => (
+          <div>
+            <img
+              style={{ maxHeight: "100vh", objectFit: "cover" }}
+              src={src.default}
+              alt="alt"
+            />
           </div>
-        ))}
+        ))} */}
+        <Camper />
       </Carousel>
     </div>
   );

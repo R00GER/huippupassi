@@ -1,4 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap");
+
+/* "Fjalla One", "Open Sans", "Helvetica Neue", "Helvetica", "sans-serif" */
+
+/* huippupassi dark orange #ec962c */
+/* huippupassi medium orange #f4c387 */
+/* huippupassi light orange #f9e4ca */
 
 * {
   padding: 0;
@@ -6,14 +13,24 @@
   box-sizing: border-box;
 }
 
+:root {
+  --color-dark-orange: #ec962c;
+  --color-medium-orange: #f4c387;
+  --color-light-orange: #f9e4ca;
+}
+
 body {
   width: 100%;
   height: 100%;
   margin: 0;
   font-family: "Montserrat", sans-serif;
+  overflow-x: hidden;
+  background-image: url(./assets/worn_dots.png);
+  /* background-repeat: repeat; */
+  /* background-size: 100px; */
 }
 
-.carousel .slider-wrapper.axis-horizontal .slider .slide {
+/* .carousel .slider-wrapper.axis-horizontal .slider .slide {
   display: flex;
   justify-content: center;
-}
+} */
