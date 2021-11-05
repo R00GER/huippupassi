@@ -4,7 +4,21 @@ import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles({
   listItem: {},
   listItemButton: {
+    "&:hover": {
+      backgroundColor: "unset !important",
+    },
+    height: "50%",
     whiteSpace: "nowrap",
+  },
+  listItemText: {
+    textAlign: "center",
+  },
+  listItemTextInput: {
+    "&:hover": {
+      color: "#ec962c",
+    },
+    fontSize: "1.2rem",
+    lineHeight: 1,
   },
 });
 
@@ -14,13 +28,13 @@ const NavigationLinks = ({ showNavigationLinks, setShowNavigationLinks }) => {
   const classes = useStyles();
 
   return showNavigationLinks ? (
-    <List style={{ display: "flex", width: "50%" }}>
+    <List style={{ display: "flex", width: "50%", paddingBottom: "0" }}>
       {links.map((link) => (
-        <ListItem className={classes.listItem}>
+        <ListItem key={link} className={classes.listItem}>
           <ListItemButton className={classes.listItemButton}>
             <ListItemText
-              style={{ textAlign: "center" }}
-              primaryTypographyProps={{ fontSize: "1.2rem" }}
+              className={classes.listItemText}
+              primaryTypographyProps={{ className: classes.listItemTextInput }}
               primary={link}
             />
           </ListItemButton>

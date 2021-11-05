@@ -6,6 +6,11 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#ec962c",
+    },
+  },
   typography: {
     h1: {
       fontFamily: [
@@ -15,6 +20,25 @@ const theme = createTheme({
         "Helvetica",
         "sans-serif",
       ].join(","),
+      color: "#f2f2f2",
+    },
+    h2: {
+      fontFamily: [
+        "Fjalla One",
+        "Open Sans",
+        "Helvetica Neue",
+        "Helvetica",
+        "sans-serif",
+      ].join(","),
+      fontSize: "2.4rem",
+      color: "#f2f2f2",
+    },
+    body1: {
+      color: "#ececec",
+    },
+    body2: {
+      color: "#cecece",
+      fontSize: "1rem",
     },
     fontFamily: ["Montserrat", "sans-serif"].join(","),
   },

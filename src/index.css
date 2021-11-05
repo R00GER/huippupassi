@@ -17,6 +17,12 @@
   --color-dark-orange: #ec962c;
   --color-medium-orange: #f4c387;
   --color-light-orange: #f9e4ca;
+
+  --color-text-secondary: #cecece;
+}
+
+.App {
+  position: relative;
 }
 
 body {
@@ -24,8 +30,9 @@ body {
   height: 100%;
   margin: 0;
   font-family: "Montserrat", sans-serif;
-  overflow-x: hidden;
-  background-image: url(./assets/worn_dots.png);
+  /* overflow-x: hidden; */
+  background-color: #181818;
+  /* background-image: url(./assets/worn_dots.png); */
   /* background-repeat: repeat; */
   /* background-size: 100px; */
 }
@@ -34,3 +41,7 @@ body {
   display: flex;
   justify-content: center;
 } */
+
+.slider-wrapper {
+  height: 100%;
+}

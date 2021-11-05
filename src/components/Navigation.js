@@ -1,5 +1,5 @@
 import { makeStyles } from "@mui/styles";
-import logo from "../assets/logo_nav.png";
+import logo from "../assets/logo_nav4.png";
 import NavigationLinks from "./NavigationLinks";
 
 const useStyles = makeStyles({
@@ -11,12 +11,16 @@ const useStyles = makeStyles({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    // background: "rgba(0, 0, 0, 0.03)",
     zIndex: 1,
   },
   img: {
     paddingLeft: "1.5rem",
     height: "50%",
+  },
+  divider: {
+    width: "90%",
+    height: "1px",
+    backgroundColor: "darkgray",
   },
 });
 
@@ -24,13 +28,15 @@ const Navigation = ({ showNavigationLinks, setShowNavigationLinks }) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.container}>
-      <img className={classes.img} src={logo} alt="logo" />
-      <NavigationLinks
-        showNavigationLinks={showNavigationLinks}
-        setShowNavigationLinks={setShowNavigationLinks}
-      />
-    </div>
+    <>
+      <div className={classes.container}>
+        <img className={classes.img} src={logo} alt="logo" />
+        <NavigationLinks
+          showNavigationLinks={showNavigationLinks}
+          setShowNavigationLinks={setShowNavigationLinks}
+        />
+      </div>
+    </>
   );
 };
 
