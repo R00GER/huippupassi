@@ -4,7 +4,7 @@ import { cloneElement } from "react";
 import { IoCall } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
 import { IoChatbubbleEllipsesSharp } from "react-icons/io5";
-import logoDark from "../assets/logo_dark.png";
+import logoDark from "../../assets/logo_dark.png";
 
 const useStyles = makeStyles({
   container: {

@@ -1,5 +1,5 @@
 import { makeStyles } from "@mui/styles";
-import logo from "../assets/logo_nav4.png";
+import logo from "../../assets/logo_nav4.png";
 import NavigationLinks from "./NavigationLinks";
 
 const useStyles = makeStyles({

@@ -2,8 +2,8 @@ import { forwardRef } from "react";
 import { makeStyles } from "@mui/styles";
 import { Typography } from "@mui/material";
 import contactUs from "../assets/contactUs.jpg";
-import ContactForm from "../components/ContactForm";
-import ContactInfo from "../components/ContactInfo";
+import ContactForm from "../components/contact/ContactForm";
+import ContactInfo from "../components/contact/ContactInfo";
 import ImageLayer from "../components/ImageLayer";
 import { texts } from "../texts";
 

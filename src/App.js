@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import tawkTo from "tawkto-react";
-import Navigation from "./components/Navigation";
+import Navigation from "./components/navigation/Navigation";
 import Hero from "./views/Hero";
 import Services from "./views/Services";
 // import PhoneFab from "./components/PhoneFab";
 // import ChatFab from "./components/ChatFab";
 import ViewContainer from "./components/ViewContainer";
 import Contact from "./views/Contact";
-import OurPartners from "./components/OurPartners";
+import OurPartners from "./views/OurPartners";
 import Testimonials from "./views/Testimonials";
 import Footer from "./components/Footer";
 
