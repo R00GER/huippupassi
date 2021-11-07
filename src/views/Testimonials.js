@@ -1,52 +1,64 @@
-import solmiaLogo from "../assets/solmia.png";
 import { Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import { RiDoubleQuotesL } from "react-icons/ri";
 import { RiDoubleQuotesR } from "react-icons/ri";
+import solmiaLogo from "../assets/solmia.png";
+import { texts } from "../texts";
+
+const useStyles = makeStyles({
+  container: {
+    height: "100%",
+    position: "relative",
+    padding: "2rem 0",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  quoteTopRow: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    width: "50%",
+  },
+  quoteLeftContainer: {
+    alignSelf: "flex-start",
+  },
+  quoteRightContainer: {
+    alignSelf: "flex-end",
+  },
+  quoteIcon: {
+    color: "var(--color-dark-orange)",
+    fontSize: "3rem",
+  },
+  body: {
+    width: "90%",
+  },
+  img: {
+    opacity: "0.4",
+  },
+});
 
 const Testimonials = () => {
+  const classes = useStyles();
   return (
-    <div
-      style={{
-        height: "100%",
-        position: "relative",
-        padding: "2rem 0",
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          width: "50%",
-        }}
-      >
-        <div style={{ alignSelf: "flex-start" }}>
-          <RiDoubleQuotesL
-            style={{ color: "var(--color-dark-orange)", fontSize: "3rem" }}
-          />
+    <div className={classes.container}>
+      <div className={classes.quoteTopRow}>
+        <div className={classes.quoteLeftContainer}>
+          <RiDoubleQuotesL className={classes.quoteIcon} />
         </div>
-        <div style={{ width: "90%" }}>
+        <div className={classes.body}>
           <Typography style={{ fontSize: "1.3rem", fontStyle: "italic" }}>
-            Kokemuksen ansiosta Huippupassilla osataan myös vääntää lempeästi
-            rautalankaa, eli puhua asioista aina asiakkaan kielellä siten, että
-            asiakkaan kiinnostus varmasti herää. Huippupassin tyylissä on vahvan
-            kokemuksen lisäksi juuri sopivassa suhteessa rokkia ja sporttia.
-            Jalka menee ovenrakoon tyylikkäästi ja tuottavasti.
+            {texts.testimonials.body}
           </Typography>
           <br />
-          <Typography>-Tiina Hurme, Solmia Oy</Typography>
+          <Typography>{texts.testimonials.signature}</Typography>
         </div>
-        <div style={{ alignSelf: "flex-end" }}>
-          <RiDoubleQuotesR
-            style={{ color: "var(--color-dark-orange)", fontSize: "3rem" }}
-          />
+        <div className={classes.quoteRightContainer}>
+          <RiDoubleQuotesR className={classes.quoteIcon} />
         </div>
       </div>
-      <img style={{ opacity: "0.4" }} alt="solmia logo" src={solmiaLogo} />
+      <img className={classes.img} alt="solmia logo" src={solmiaLogo} />
     </div>
   );
 };

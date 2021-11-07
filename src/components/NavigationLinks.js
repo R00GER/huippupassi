@@ -2,7 +2,7 @@ import { List, ListItem, ListItemButton, ListItemText } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
-  listItem: {},
+  list: { display: "flex", width: "50%", paddingBottom: "0" },
   listItemButton: {
     "&:hover": {
       backgroundColor: "unset !important",
@@ -28,7 +28,7 @@ const NavigationLinks = ({ showNavigationLinks, setShowNavigationLinks }) => {
   const classes = useStyles();
 
   return showNavigationLinks ? (
-    <List style={{ display: "flex", width: "50%", paddingBottom: "0" }}>
+    <List className={classes.list}>
       {links.map((link) => (
         <ListItem key={link} className={classes.listItem}>
           <ListItemButton className={classes.listItemButton}>

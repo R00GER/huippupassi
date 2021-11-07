@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import { FaRegHandRock } from "react-icons/fa";
 import { BiCar } from "react-icons/bi";
 import { IoGameControllerOutline } from "react-icons/io5";
@@ -13,46 +13,69 @@ import { MdOutlineShower, MdOutlineHeadsetMic } from "react-icons/md";
 // import bookingIcon from "../assets/icons/bookingIcon.png";
 // import bg from "../assets/es.png";
 import ServiceCard from "../components/ServiceCard";
+import { texts } from "../texts";
+
+const useStyles = makeStyles({
+  container: {
+    height: "100%",
+    width: "100%",
+    paddingTop: "1rem",
+  },
+  serviceCardsContainer: {
+    display: "flex",
+    padding: "2rem 2rem 0 2rem",
+    justifyContent: "center",
+    flexWrap: "wrap",
+    width: "100%",
+    marginTop: "1rem",
+  },
+});
 
 const ServicesContainer = forwardRef((_, ref) => {
   const services = [
     {
-      label: "Matkailuauto",
+      label: texts.services.matkailuauto,
+      body: texts.services.matkailuautoBody,
       icon: <BiCar />,
       iconProps: {
         style: { fill: "var(--color-dark-orange)", fontSize: "3.5rem" },
       },
     },
     {
-      label: "Luola Klubi",
+      label: texts.services.luolaKlubi,
+      body: texts.services.luolaKlubiBody,
       icon: <FaRegHandRock />,
       iconProps: {
         style: { fill: "var(--color-dark-orange)", fontSize: "3.5rem" },
       },
     },
     {
-      label: "Goons",
+      label: texts.services.goons,
+      body: texts.services.goonsBody,
       icon: <IoGameControllerOutline />,
       iconProps: {
         style: { color: "var(--color-dark-orange)", fontSize: "3.5rem" },
       },
     },
     {
-      label: "Juhlatila",
+      label: texts.services.juhlatila,
+      body: texts.services.juhlatilaBody,
       icon: <BiDrink />,
       iconProps: {
         style: { color: "var(--color-dark-orange)", fontSize: "3.5rem" },
       },
     },
     {
-      label: "Saunakellari",
+      label: texts.services.saunakellari,
+      body: texts.services.saunakellariBody,
       icon: <MdOutlineShower />,
       iconProps: {
         style: { color: "var(--color-dark-orange)", fontSize: "3.5rem" },
       },
     },
     {
-      label: "Bookkaus",
+      label: texts.services.bookkaus,
+      body: texts.services.bookkausBody,
       icon: <MdOutlineHeadsetMic />,
       iconProps: {
         style: { color: "var(--color-dark-orange)", fontSize: "3.5rem" },
@@ -60,41 +83,16 @@ const ServicesContainer = forwardRef((_, ref) => {
     },
   ];
 
+  const classes = useStyles();
+
   return (
-    <div
-      ref={ref}
-      style={{
-        height: "100%",
-        width: "100%",
-        paddingTop: "1rem",
-      }}
-    >
-      {/* <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          // backgroundColor: "#fff",
-          paddingBottom: "2rem",
-        }}
-      >
-        <Typography variant="h1" style={{ fontSize: "4rem" }}>
-          Palvelumme
-        </Typography>
-      </div> */}
-      <div
-        style={{
-          display: "flex",
-          padding: "2rem 2rem 0 2rem",
-          justifyContent: "center",
-          flexWrap: "wrap",
-          width: "100%",
-          marginTop: "1rem",
-        }}
-      >
-        {services.map(({ label, icon, iconProps }) => (
+    <div className={classes.container} ref={ref}>
+      <div className={classes.serviceCardsContainer}>
+        {services.map(({ label, body, icon, iconProps }) => (
           <ServiceCard
             key={label}
             label={label}
+            body={body}
             icon={icon}
             iconProps={iconProps}
           />

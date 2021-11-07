@@ -16,6 +16,7 @@ const useStyles = makeStyles({
   img: {
     paddingLeft: "1.5rem",
     height: "50%",
+    cursor: "pointer",
   },
   divider: {
     width: "90%",
@@ -24,19 +25,26 @@ const useStyles = makeStyles({
   },
 });
 
-const Navigation = ({ showNavigationLinks, setShowNavigationLinks }) => {
+const Navigation = ({
+  scrollToView,
+  showNavigationLinks,
+  setShowNavigationLinks,
+}) => {
   const classes = useStyles();
 
   return (
-    <>
-      <div className={classes.container}>
-        <img className={classes.img} src={logo} alt="logo" />
-        <NavigationLinks
-          showNavigationLinks={showNavigationLinks}
-          setShowNavigationLinks={setShowNavigationLinks}
-        />
-      </div>
-    </>
+    <div className={classes.container}>
+      <img
+        className={classes.img}
+        src={logo}
+        alt="logo"
+        onClick={() => scrollToView("heroRef")}
+      />
+      <NavigationLinks
+        showNavigationLinks={showNavigationLinks}
+        setShowNavigationLinks={setShowNavigationLinks}
+      />
+    </div>
   );
 };
 

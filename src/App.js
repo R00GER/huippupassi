@@ -3,8 +3,8 @@ import tawkTo from "tawkto-react";
 import Navigation from "./components/Navigation";
 import Hero from "./views/Hero";
 import Services from "./views/Services";
-import PhoneFab from "./components/PhoneFab";
-import ChatFab from "./components/ChatFab";
+// import PhoneFab from "./components/PhoneFab";
+// import ChatFab from "./components/ChatFab";
 import ViewContainer from "./components/ViewContainer";
 import Contact from "./views/Contact";
 import OurPartners from "./components/OurPartners";
@@ -45,7 +45,7 @@ const App = () => {
     {
       key: "ourPartners",
       component: <OurPartners />,
-      viewProps: {},
+      viewProps: { padding: true },
     },
     {
       key: "testiMonials",
@@ -85,6 +85,7 @@ const App = () => {
   return (
     <div className="App">
       <Navigation
+        scrollToView={scrollToView}
         showNavigationLinks={showNavigationLinks}
         setShowNavigationLinks={setShowNavigationLinks}
       />
@@ -94,8 +95,8 @@ const App = () => {
         </ViewContainer>
       ))}
       <Footer scrollToView={scrollToView} />
-      <PhoneFab />
-      <ChatFab />
+      {/* <PhoneFab /> */}
+      {/* <ChatFab /> */}
     </div>
   );
 };

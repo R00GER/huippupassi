@@ -1,8 +1,43 @@
 import React, { useState } from "react";
 import { Button, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import { texts } from "../texts";
 
 const useStyles = makeStyles({
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    width: "33.3%",
+    minHeight: "200px",
+    marginBottom: "1rem",
+  },
+  iconContainer: {
+    width: "150px",
+    height: "150px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: "50%",
+    // backgroundColor: color,
+    border: "2px solid var(--color-medium-orange)",
+    marginBottom: "1rem",
+  },
+  textContainer: {
+    textAlign: "center",
+  },
+  label: {
+    marginBottom: "0.4rem",
+  },
+  body: {
+    padding: "0 1rem",
+  },
+  buttonContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    padding: "1.5rem",
+  },
   button: {
     "&:hover": {
       backgroundColor: "var(--color-dark-orange) !important",
@@ -11,7 +46,7 @@ const useStyles = makeStyles({
   },
 });
 
-const ServiceCard = ({ label, icon, iconProps }) => {
+const ServiceCard = ({ label, body, icon, iconProps }) => {
   const [hover, setHover] = useState(false);
   const iconComponent = React.cloneElement(icon, { ...iconProps });
 
@@ -19,53 +54,20 @@ const ServiceCard = ({ label, icon, iconProps }) => {
 
   return (
     <div
+      className={classes.container}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        width: "33.3%",
-        minHeight: "200px",
-        marginBottom: "1rem",
-      }}
     >
-      <div
-        style={{
-          width: "150px",
-          height: "150px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          borderRadius: "50%",
-          // backgroundColor: color,
-          border: "2px solid var(--color-medium-orange)",
-          marginBottom: "1rem",
-        }}
-      >
-        {iconComponent}
-      </div>
-      <div style={{ textAlign: "center" }}>
-        <div style={{ marginBottom: "0.4rem" }}>
+      <div className={classes.iconContainer}>{iconComponent}</div>
+      <div className={classes.textContainer}>
+        <div className={classes.label}>
           <Typography variant="h2">{label}</Typography>
         </div>
-        <div style={{ padding: "0 1rem" }}>
-          <Typography variant="body2">
-            Matkailu- tai asuntoauto on vastaus tarpeisiisi, mikäli haaveilet
-            lomasta, jolla aikataulut tai yöpaikkojen varaaminen eivät sido
-            sinua. Upouusi Adria Matrix automme tarjoaa vapauden lisäksi myös
-            korkeatasoiset puitteet matkailuautoilulle.
-          </Typography>
+        <div className={classes.body}>
+          <Typography variant="body2">{body}</Typography>
         </div>
       </div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          padding: "1.5rem",
-        }}
-      >
+      <div className={classes.buttonContainer}>
         <Button
           className={classes.button}
           style={{
@@ -78,7 +80,7 @@ const ServiceCard = ({ label, icon, iconProps }) => {
           size="large"
           variant="outlined"
         >
-          Lue lisää
+          {texts.services.action}
         </Button>
       </div>
     </div>

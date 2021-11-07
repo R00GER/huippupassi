@@ -1,8 +1,16 @@
+import logoDark from "../assets/logo_dark.png";
 import { IconButton } from "@mui/material";
 import { IoIosArrowUp } from "react-icons/io";
 
 const Footer = ({ scrollToView }) => (
-  <div style={{ position: "relative", height: "20vh", paddingTop: "0.5rem" }}>
+  <div
+    style={{
+      position: "relative",
+      height: "20vh",
+      width: "100%",
+      padding: "0.5rem",
+    }}
+  >
     <IconButton
       style={{
         position: "absolute",
@@ -20,6 +28,11 @@ const Footer = ({ scrollToView }) => (
         }}
       />
     </IconButton>
+    <img
+      style={{ height: "30px" }}
+      alt="huippupassi logo dark"
+      src={logoDark}
+    />
   </div>
 );
 

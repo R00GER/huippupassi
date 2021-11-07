@@ -1,6 +1,24 @@
 import { Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { texts } from "../texts";
+
+const useStyles = makeStyles({
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    // background: "#222222",
+  },
+  headerContainer: {
+    paddingBottom: "4rem",
+  },
+  img: {
+    height: "50vh",
+    objectFit: "cover",
+  },
+});
 
 const OurPartners = () => {
   const importAll = (r) => r.keys().map(r);
@@ -9,18 +27,16 @@ const OurPartners = () => {
     require.context("../assets/carousel", false, /\.(png|jpe?g|svg)$/)
   );
 
+  const classes = useStyles();
+
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        // background: "#222222",
-      }}
-    >
-      <div style={{ paddingBottom: "4rem" }}>
-        <Typography variant="h1" style={{ fontSize: "4rem" }}>
-          Yhteistyössä
+    <div className={classes.container}>
+      <div className={classes.headerContainer}>
+        <Typography
+          style={{ fontSize: "3.9rem", textTransform: "uppercase" }}
+          variant="h1"
+        >
+          {texts.ourPartners.header}
         </Typography>
       </div>
       <Carousel
@@ -32,10 +48,10 @@ const OurPartners = () => {
       >
         {images.map((src) => (
           <img
+            className={classes.img}
             key={src}
-            style={{ height: "50vh", objectFit: "cover" }}
             src={src.default}
-            alt="alt"
+            alt={src.default}
           />
         ))}
       </Carousel>

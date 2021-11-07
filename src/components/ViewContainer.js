@@ -13,7 +13,7 @@ const ViewContainer = ({ children, customHeight, fullHeight, padding }) => {
       style={{
         width: "100%",
         height: chooseHeight(),
-        padding: padding ? "0 1rem" : "0",
+        padding: padding ? "1rem 1rem" : "0",
       }}
     >
       {children}

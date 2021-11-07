@@ -2,6 +2,8 @@ import React, { forwardRef } from "react";
 import { Button, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import heroImage from "../assets/heroNoText.jpg";
+import ImageLayer from "../components/ImageLayer";
+import { texts } from "../texts";
 
 const useStyles = makeStyles({
   container: {
@@ -14,13 +16,8 @@ const useStyles = makeStyles({
     backgroundImage: `url(${heroImage})`,
     display: "flex",
     justifyContent: "center",
-  },
-  layer: {
-    position: "absolute",
-    top: 0,
-    width: "100%",
-    height: "100%",
-    background: "rgba(0, 0, 0, 0.6)",
+    boxShadow:
+      "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;",
   },
   heroTextContainer: {
     position: "relative",
@@ -47,20 +44,16 @@ const Hero = forwardRef(({ scrollToView }, ref) => {
 
   return (
     <div ref={ref} className={classes.container}>
-      <div className={classes.layer} />
+      <ImageLayer />
       <div className={classes.heroTextContainer}>
         <div className={classes.heroTextHeader}>
           <Typography variant="h1" style={{ fontSize: "5rem" }}>
-            ASIAKASTAPAAMISIA KAIKILLE TOIMIALOILLE
+            {texts.hero.header}
           </Typography>
         </div>
         <div className={classes.heroTextBody}>
           <Typography variant="body1" style={{ fontSize: "1.4rem" }}>
-            Olipa yrityksesi tarve asiakastapaamisten buukkauksen suhteen mikä
-            hyvänsä, löydämme joustavat ratkaisut kaiken kokoisten yritysten
-            tarpeisiin. Jokainen puhelu potentiaaliselle asiakkaalle on uniikki
-            keskustelu - emme tukehduta asiakasta valmiisiin spiikkeihin.
-            Tulokset puhuvat puolestaan - buukkaamme vain tuottavia käyntejä.
+            {texts.hero.body}
           </Typography>
         </div>
         <div className={classes.heroTextBottom}>
@@ -73,7 +66,7 @@ const Hero = forwardRef(({ scrollToView }, ref) => {
             }}
             variant="outlined"
           >
-            <Typography>Palvelumme</Typography>
+            <Typography>{texts.hero.actionSecondary}</Typography>
           </Button>
           <Button
             onClick={() => scrollToView("contactRef")}
@@ -84,7 +77,7 @@ const Hero = forwardRef(({ scrollToView }, ref) => {
             }}
             variant="contained"
           >
-            <Typography>Ota yhteyttä</Typography>
+            <Typography>{texts.hero.actionPrimary}</Typography>
           </Button>
         </div>
       </div>

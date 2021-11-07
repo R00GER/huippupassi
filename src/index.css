@@ -19,6 +19,7 @@
   --color-light-orange: #f9e4ca;
 
   --color-text-secondary: #cecece;
+  --color-text-contrast: #2d2d2d;
 }
 
 .App {
@@ -44,4 +45,9 @@ body {
 
 .slider-wrapper {
   height: 100%;
+}
+
+.tawk-button {
+  background-color: "red !important";
+  background: "red !important";
 }
