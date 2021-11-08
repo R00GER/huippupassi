@@ -10,16 +10,34 @@ import Contact from "./views/Contact";
 import OurPartners from "./views/OurPartners";
 import Testimonials from "./views/Testimonials";
 import Footer from "./components/Footer";
+import getChatCredentials from "./services/chatService";
 
 const App = () => {
   const [showNavigationLinks, setShowNavigationLinks] = useState(true);
+  const [chatCredentials, setChatCredentials] = useState({
+    id: "",
+    key: "",
+    error: false,
+  });
 
-  const PROPERTY_ID = process.env.REACT_APP_PROPERTY_ID;
-  const KEY = process.env.REACT_APP_KEY;
+  // const PROPERTY_ID = process.env.REACT_APP_PROPERTY_ID;
+  // const KEY = process.env.REACT_APP_KEY;
 
   useEffect(() => {
-    tawkTo(PROPERTY_ID, KEY);
-  }, [PROPERTY_ID, KEY]);
+    const initChat = async () => {
+      try {
+        const { id, key } = await getChatCredentials();
+        setChatCredentials({ id, key, error: false });
+      } catch (error) {
+        setChatCredentials({ id: "", key: "", error: true });
+      }
+    };
+
+    initChat();
+
+    if (chatCredentials.id && chatCredentials.key && !chatCredentials.error)
+      tawkTo(chatCredentials.id, chatCredentials.key);
+  }, [chatCredentials.id, chatCredentials.key, chatCredentials.error]);
 
   const refs = {
     heroRef: useRef(null),

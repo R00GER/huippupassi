@@ -35,5 +35,7 @@ export const texts = {
   },
   contact: {
     header: "OTA YHTEYTTÄ",
+    action: "LÄHETÄ",
+    formError: "Jotain meni pieleen, yritä hetken kuluttua uudestaan.",
   },
 };
