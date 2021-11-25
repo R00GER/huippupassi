@@ -2,7 +2,7 @@ import { List, ListItem, ListItemButton, ListItemText } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
-  list: { display: "flex", width: "50%", paddingBottom: "0" },
+  list: { display: "flex", maxWidth: "700px", paddingBottom: "0" },
   listItemButton: {
     "&:hover": {
       backgroundColor: "unset !important",
@@ -22,12 +22,16 @@ const useStyles = makeStyles({
   },
 });
 
-const NavigationLinks = ({ showNavigationLinks, setShowNavigationLinks }) => {
-  const links = ["Luola klubi", "Matkailuauto", "Juhlatila", "Gaming"];
+export const links = ["Luola klubi", "Matkailuauto", "Juhlatila", "Gaming"];
 
+const NavigationLinks = ({
+  showNavigationLinks,
+  setShowNavigationLinks,
+  breakpoint,
+}) => {
   const classes = useStyles();
 
-  return showNavigationLinks ? (
+  return !breakpoint && showNavigationLinks ? (
     <List className={classes.list}>
       {links.map((link) => (
         <ListItem key={link} className={classes.listItem}>

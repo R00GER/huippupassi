@@ -1,7 +1,7 @@
 export const texts = {
   hero: {
     header: "ASIAKASTAPAAMISIA KAIKILLE TOIMIALOILLE",
-    body: "Olipa yrityksesi tarve asiakastapaamisten buukkauksen suhteen mikä hyvänsä, löydämme joustavat ratkaisut kaiken kokoisten yritysten tarpeisiin. Jokainen puhelu potentiaaliselle asiakkaalle on uniikki keskustelu - emme tukehduta asiakasta valmiisiin spiikkeihin. Tulokset puhuvat puolestaan - buukkaamme vain tuottavia käyntejä.",
+    body: "Olipa yrityksesi tarve asiakastapaamisten buukkauksen suhteen mikä hyvänsä, löydämme joustavat ratkaisut kaiken kokoisten yritysten tarpeisiin.",
     actionPrimary: "OTA YHTEYTTÄ",
     actionSecondary: "PALVELUMME",
   },

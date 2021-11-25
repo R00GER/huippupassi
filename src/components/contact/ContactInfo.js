@@ -28,26 +28,27 @@ const useStyles = makeStyles({
   },
 });
 
+export const contacts = [
+  {
+    key: "phone",
+    icon: <IoCall />,
+    value: "045 135 4987",
+  },
+  {
+    key: "email",
+    icon: <MdEmail />,
+    value: "marko@huippupassi.fi",
+  },
+  {
+    key: "chat",
+    icon: <IoChatbubbleEllipsesSharp />,
+    value: "Avaa chat",
+  },
+];
+
 const ContactInfo = () => {
   const classes = useStyles();
 
-  const contactCards = [
-    {
-      key: "phone",
-      icon: <IoCall />,
-      value: "045 135 4987",
-    },
-    {
-      key: "email",
-      icon: <MdEmail />,
-      value: "marko@huippupassi.fi",
-    },
-    {
-      key: "chat",
-      icon: <IoChatbubbleEllipsesSharp />,
-      value: "Chat",
-    },
-  ];
   return (
     <div className={classes.container}>
       <div className={classes.imageContainer}>
@@ -57,7 +58,7 @@ const ContactInfo = () => {
           src={logoDark}
         />
       </div>
-      {contactCards.map((card) => {
+      {contacts.map((card) => {
         const iconComponent = cloneElement(card.icon, {
           className: classes.icon,
         });

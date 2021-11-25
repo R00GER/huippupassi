@@ -11,14 +11,19 @@ import OurPartners from "./views/OurPartners";
 import Testimonials from "./views/Testimonials";
 import Footer from "./components/Footer";
 import getChatCredentials from "./services/chatService";
+import Menubar from "./components/Menubar";
+import { useMediaQuery } from "@mui/material";
 
 const App = () => {
+  const [showMenubar, setShowMenuBar] = useState(false);
   const [showNavigationLinks, setShowNavigationLinks] = useState(true);
   const [chatCredentials, setChatCredentials] = useState({
     id: "",
     key: "",
     error: false,
   });
+
+  const xs = useMediaQuery((theme) => theme.breakpoints.only("xs"));
 
   // const PROPERTY_ID = process.env.REACT_APP_PROPERTY_ID;
   // const KEY = process.env.REACT_APP_KEY;
@@ -53,7 +58,7 @@ const App = () => {
     {
       key: "hero",
       component: <Hero scrollToView={scrollToView} ref={refs.heroRef} />,
-      viewProps: {},
+      viewProps: { fullHeight: xs },
     },
     {
       key: "services",
@@ -76,6 +81,8 @@ const App = () => {
       viewProps: {},
     },
   ];
+
+  console.log(showMenubar);
 
   const getScrollPosition = () => {
     const winScroll =
@@ -106,7 +113,9 @@ const App = () => {
         scrollToView={scrollToView}
         showNavigationLinks={showNavigationLinks}
         setShowNavigationLinks={setShowNavigationLinks}
+        setShowMenubar={setShowMenuBar}
       />
+      <Menubar showMenubar={showMenubar} setShowMenuBar={setShowMenuBar} />
       {views.map(({ key, component, viewProps }) => (
         <ViewContainer key={key} {...viewProps}>
           {component}

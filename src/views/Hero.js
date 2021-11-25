@@ -5,7 +5,7 @@ import heroImage from "../assets/heroNoText.jpg";
 import ImageLayer from "../components/ImageLayer";
 import { texts } from "../texts";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   container: {
     height: "100%",
     position: "relative",
@@ -20,24 +20,47 @@ const useStyles = makeStyles({
       "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;",
   },
   heroTextContainer: {
-    position: "relative",
+    [theme.breakpoints.only("xs")]: {
+      width: "100%",
+      padding: "3rem 1rem 3rem 1rem",
+      marginRight: "0rem",
+    },
     width: "75%",
+    position: "relative",
     padding: "3rem 2rem 3rem 3rem",
     marginRight: "2rem",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
   },
+  root: {
+    fontSize: "3rem",
+    color: "red",
+  },
   heroTextBody: {
+    [theme.breakpoints.only("xs")]: {
+      marginTop: "1rem",
+      paddingRight: "0.5rem",
+    },
     marginTop: "1rem",
     paddingRight: "1.8rem",
   },
   heroTextBottom: {
+    [theme.breakpoints.only("xs")]: {
+      marginTop: "1rem",
+      paddingRight: "0.5rem",
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "center",
+    },
     width: "100%",
-    textAlign: "center",
     marginTop: "2rem",
+    display: "flex",
+    justifyContent: "center",
+    flexWrap: "wrap",
   },
-});
+  button: {},
+}));
 
 const Hero = forwardRef(({ scrollToView }, ref) => {
   const classes = useStyles();
@@ -47,7 +70,7 @@ const Hero = forwardRef(({ scrollToView }, ref) => {
       <ImageLayer />
       <div className={classes.heroTextContainer}>
         <div className={classes.heroTextHeader}>
-          <Typography variant="h1" style={{ fontSize: "5rem" }}>
+          <Typography variant="h1" className={classes.root}>
             {texts.hero.header}
           </Typography>
         </div>
@@ -61,8 +84,9 @@ const Hero = forwardRef(({ scrollToView }, ref) => {
             onClick={() => scrollToView("servicesRef")}
             size="large"
             style={{
-              marginRight: "1rem",
               padding: "10px 22px",
+              width: "165px",
+              marginRight: "1rem",
             }}
             variant="outlined"
           >
@@ -74,6 +98,7 @@ const Hero = forwardRef(({ scrollToView }, ref) => {
             style={{
               backgroundColor: "#ec962c",
               padding: "10px 22px",
+              width: "165px",
             }}
             variant="contained"
           >
